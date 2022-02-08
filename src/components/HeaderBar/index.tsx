@@ -23,7 +23,7 @@ import { themes } from '@utils/const';
 import Shortcuts from "@src/components/Shortcuts";
 import History from "@src/components/History";
 
-const is_update = +(localStorage.getItem(LOCAL_STORE.MD_UPDATE_LOG) || 0) >= UPDATE_LOG_VERSION ? false : true;
+const is_update = false//+(localStorage.getItem(LOCAL_STORE.MD_UPDATE_LOG) || 0) >= UPDATE_LOG_VERSION ? false : true;
 
 const HeaderBar = observer(() => {
   const { templateStore } = useStores();
@@ -60,7 +60,7 @@ const HeaderBar = observer(() => {
   const exportMdFile = useCallback(() => {
     const file = new Blob([mdContent]);
     const url = URL.createObjectURL(file);
-    downloadDirect(url, "木及简历.md");
+    downloadDirect(url, "简历生成.md");
   }, [mdContent]);
 
   const templateContent = (
@@ -139,7 +139,7 @@ const HeaderBar = observer(() => {
         try {
           hide();
           const curThemes = themes.filter(item => item.id === theme);
-          await downloadFetch(curThemes[0].defaultUrl, name ? `${name}.pdf` : "木及简历.pdf");
+          await downloadFetch(curThemes[0].defaultUrl, name ? `${name}.pdf` : "简历生成.pdf");
         } catch (e) {
           hide();
         }
@@ -157,7 +157,7 @@ const HeaderBar = observer(() => {
           isOnePage,
           pages
         });
-        await downloadFetch(data.url, name ? `${name}.pdf` : "木及简历.pdf");
+        await downloadFetch(data.url, name ? `${name}.pdf` : "简历生成.pdf");
         hide();
         message.success("恭喜你，导出成功!")
       } catch (e) {
@@ -177,7 +177,7 @@ const HeaderBar = observer(() => {
       <div className="rs-header-bar__left">
         {/* <a className="rs-logo rs-link">
           <img src="https://s3.qiufeng.blue/muji/muji-logo.jpg" alt=""/>
-          木及简历
+          简历生成
         </a> */}
         <Dropdown overlay={filesMenu} trigger={["click"]}>
           <a

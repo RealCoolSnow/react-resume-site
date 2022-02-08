@@ -25,7 +25,7 @@ const HeaderCommonBar = observer(() => {
         <h1>
           <a href="/">
             <img src="https://s3.qiufeng.blue/muji/muji-logo-v2.jpg" alt="" />
-            <span>木及简历</span>
+            <span>简历生成</span>
           </a>
         </h1>
       </div>
@@ -49,9 +49,9 @@ const HeaderCommonBar = observer(() => {
               </li>
             );
           })}
-          <li className="nav-li">
+          {/* <li className="nav-li">
             <FeedBack></FeedBack>
-          </li>
+          </li> */}
           {/* <li className={`nav-li ${curTab === '#/square' ? 'current' : ""}`}><a href="#/square" onClick={(e) => {
           e.preventDefault();
         }}>模板中心</a></li>
