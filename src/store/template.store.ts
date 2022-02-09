@@ -9,7 +9,7 @@ class TemplateStore {
 	theme = default_theme;
 	tempTheme = default_theme;
 	color = INIT_COLOR;
-	mdContent = localContent || INIT_CONTENT;
+	mdContent = /*localContent ||*/ INIT_CONTENT;
 	html = '';
 	isPreview = false;
 
